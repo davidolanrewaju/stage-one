@@ -5,7 +5,7 @@ import axios from "axios";
 dotenv.config();
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT;
 
 const ip_token = process.env.IPINFO_TOKEN;
 const weather_api_key = process.env.WEATHER_API_KEY;
