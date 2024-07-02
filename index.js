@@ -34,7 +34,7 @@ app.get("/api/hello", async (req, res) => {
     res.status(200).json({
       client_ip,
       location,
-      message: `Hello, ${name}!, the temperature is ${temp} degrees Celcius in ${location}`,
+      greeting: `Hello, ${name}!, the temperature is ${temp} degrees Celcius in ${location}`,
     });
   } catch (error) {
     console.error("Error fetching location info:", error);
