@@ -20,7 +20,7 @@ app.get("/api/hello", async (req, res) => {
     const IP_URL = `https://ipinfo.io/json?token=${ip_token}`;
     const response = await axios.get(IP_URL);
     const locationInfo = await response.data;
-    const client_ip = locationInfo.ip;
+    const client_ip = req.ip;
     const location = locationInfo.city;
     const longAndLat = locationInfo.loc.split(",");
     const lon = parseFloat(longAndLat[0]);
