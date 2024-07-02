@@ -11,7 +11,7 @@ const ip_token = process.env.IPINFO_TOKEN;
 const weather_api_key = process.env.WEATHER_API_KEY;
 
 app.get("/", (req, res) => {
-  res.json({ link: "http://" });
+  res.json({ message: "Please visit this link: https://stage-one-seven.vercel.app/api/hello" });
 });
 
 app.get("/api/hello", async (req, res) => {
