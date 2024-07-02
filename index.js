@@ -16,11 +16,11 @@ app.get("/", (req, res) => {
 
 app.get("/api/hello", async (req, res) => {
   const name = req.query.visitor_name || 'Visitor';
+  const client_ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
   try {
-    const IP_URL = `https://ipinfo.io/json?token=${ip_token}`;
+    const IP_URL = `https://ipinfo.io/${client_ip}/json?token=${ip_token}`;
     const response = await axios.get(IP_URL);
     const locationInfo = await response.data;
-    const client_ip = req.ip;
     const location = locationInfo.city;
     const longAndLat = locationInfo.loc.split(",");
     const lon = parseFloat(longAndLat[0]);
